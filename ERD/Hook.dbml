@@ -1,0 +1,183 @@
+Project Hook_Killer {
+  database_type: 'MySQL'
+  Note: '''
+    # Hook-Killer DB스키마 구조
+  '''
+}
+
+Table Auth.tbl_user [
+  headercolor: #E4A62E, note: '사용자 계정 정보 테이블'
+] {
+  id long [pk, not null, increment, note:'사용자 UID']
+  email varchar [unique, not null , note: "사용자 로그인 ID"]
+  nick_name varchar(255) [not null, note: '사용자 NickName']
+  password varchar(255) [not null, note: '패스워드']
+  thumbnail varchar(255) [note: "사진 url"]
+  login_type varchar [
+    not null, default: "DEFAULT",
+    note: '''
+      사용자 회원가입 종류
+      - DEFAULT: 기본 사용자 가입
+      - GOOGLE: 구글
+      - LINE: 라인
+      - KAKAO: 카카오
+    '''
+  ]
+  user_role varchar [
+    not null, default: "USER",
+    note: '''
+      사용자 권한
+      - USER: 사용자
+      - ADMIN: 관리자
+    '''
+  ]
+  user_status varchar [
+    not null,
+    note: '''
+      가입 방법에 따라 DEFAULT가 달라져야 하기 때문에 DEFAULT를 일부로 부여하지 않음.
+      - NOT_ACTIVE: 계정 인증 전
+      - ACTIVE: 계정 인증 및 정상 사용 가능
+      - SUSPENSION: 계정 정지
+      - DELETE: 회원 탈퇴 및 삭제 필요 계정
+    '''
+  ]
+  created_at datetime [not null, default: `now()`, note: '계정 생성일']
+  updated_at datetime [not null, default: `now()`, note: '유저 정보 수정 일시']
+  login_at datetime [not null, default: `now()`, note: '마지막 로그인 시간']
+  is_deleted boolean [not null, default: `false`, note: '유저가 삭제되었는지 여부']
+}
+
+Table Auth.tbl_user_login_uuid [
+  headercolor: #E4A62E, note: '사용자 계정 인증 시 필요한 uuid 관련 테이블'
+] {
+  id long [pk, not null, increment, note:'인증 정보 UID']
+  user_id long [ref: - Auth.tbl_user.id]
+  uuid_key varchar [unique, not null , note: "사용자 로그인 ID"]
+  expiration_date varchar(255) [not null, note: '사용자 NickName']
+}
+
+Table Board.board[
+  headercolor: #24BAB1, note: '게시판, 타입별로 하위 게시글 추가 가능'
+] {
+  id long [pk, increment, note: '게시판 ID']
+  name varchar [not null, note: '게시판 명' ]
+  board_type varchar [not null,
+  note: '''
+    게시판의 종류
+    - NOTI : 공지사항
+    - KOREA : 한국 게시판
+    - JAPAN : 일본 게시판
+    - CHINA : 중국 게시판
+  ''']
+  description varchar [note:'게시판 사용 용도']
+}
+
+Table Board.article[
+  headercolor: #24BAB1, note: '게시글. 게시판 하위에 들어갈 것들'
+] {
+  id long [pk, increment, note: '게시글 ID']
+  board_id long [ref: > Board.board.id, not null, note: '게시판 ID']
+  org_article_language varchar [
+    not null, 
+    note: '''
+      원본으로 작성된 언어 타입
+      - KOR : 한국어
+      - ENG : 영어
+      - CHI : 중국어
+      - JPN : 일본어
+    '''
+  ]
+  article_type varchar [not null, default: 'NORMAL' ,
+  note: '''
+    게시물 종류
+    - NOTI : 공지사항
+    - NORMAL : 일반적인 게시물
+  '''
+  ]
+  status varchar [default: 'PUBLIC', note:'''
+    게시물 상태
+      - WRITING : 작성중
+      - PUBLIC : 공개상태
+      - HIDING : 숨김처리
+      - DELETE : 삭제처리
+  ''']
+  like_count int [default: 0, note: '''
+    좋아요 갯수, 매번 find로 cnt를 하는 것보다는, 게시물에서 가져오는게 좋을 것 같다는 판단을 하였슴.
+    해당 방법은 구현하면서 변경하는게 좋겠다 싶으면 그렇게 하셔도 됩니다.
+  ''']
+  is_deleted boolean [default: `false`, note: '게시글 삭제 여부']
+  created_at datetime [default: `now()`, note: '게시글 생성일']
+  created_user long [not null, note: '게시글 작성 사용자 ID입력, 관계를 묶지는 않은 이유는 Optional한 관계로 하기 떄문']
+  updated_at datetime [default: `now()`, note: '게시글 정보 업데이트']
+  updated_user long [not null, note: '마지막에 수정한 사용자 ID입력, 관계를 묶지는 않은 이유는 Optional한 관계로 하기 떄문']
+}
+
+
+Table Board.article_content[
+  headercolor: #24BAB1, note: '게시물의 내용'
+]{
+  id long [pk, increment, note: 'PK']
+  article_id long [ref: > Board.article.id, not null, note: '게시판 Id']
+  language varchar [
+    not null, 
+    note: '''
+      title, content가 적용된 언어 타입
+      - KOR : 한국어
+      - ENG : 영어
+      - CHI : 중국어
+      - JPN : 일본어
+    '''
+  ]
+  title varchar [not null, note: '게시물 제목']
+  content blob [not null, note: '게시물 정보']
+}
+
+Table Board.reply[
+  headercolor: #1E69FD, note: '댓글 Master'
+]{
+  id long [pk, increment, note: '댓글 ID']
+  article_id long [ref: > Board.article.id, not null, note: '댓글이 등록된 게시물 ID']
+  org_reply_language varchar [
+    not null, 
+    note: '''
+      원본으로 작성된 언어 타입
+      - KOR : 한국어
+      - ENG : 영어
+      - CHI : 중국어
+      - JPN : 일본어
+    '''
+  ]
+  is_deleted boolean [default: `false`, note: '댓글 삭제 여부']
+  created_at datetime [default: `now()`, note: '댓글 생성일']
+  created_user long [not null, note: '댓글 작성 사용자 ID입력, 관계를 묶지는 않은 이유는 Optional한 관계로 하기 떄문']
+  updated_at datetime [default: `now()`, note: '댓글 정보 업데이트']
+  updated_user long [not null, note: '마지막에 수정한 사용자 ID입력, 관계를 묶지는 않은 이유는 Optional한 관계로 하기 떄문']
+}
+
+Table Board.reply_content[
+  headercolor: #1E69FD, note: '댓글'
+]{
+  id long [pk, increment, note: 'PK']
+  reply_id long [ref: > Board.reply.id, not null, note: '댓글 ID']
+  language varchar [
+    not null, 
+    note: '''
+      content가 적용된 언어 타입
+      - KOR : 한국어
+      - ENG : 영어
+      - CHI : 중국어
+      - JPN : 일본어
+    '''
+  ]
+  content blob [not null, note: '댓글 내용']
+}
+
+Table Board.article_like[
+  headercolor: #24BAB1,
+  note: '''게시물 좋아요'''
+]{
+  id long [pk, increment, note: 'PK']
+  article_id long [ref: > Board.article.id, not null, note: '게시물 ID']
+  user_id long [not null, note: '좋아요를 누른 사용자의 User ID, 삭제가 되도 좋아요는 유지되는 것으로...!']
+  created_at datetime [default: `now()`, note: '게시물의 좋아요를 클릭한 일자']
+}
