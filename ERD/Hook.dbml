@@ -1,7 +1,10 @@
 Project Hook_Killer {
   database_type: 'MySQL'
   Note: '''
-    # Hook-Killer DB스키마 구조
+    # Hook-Killer DB스키마 구조      
+    
+    스키마구조는 자유자재로 변형가능합니다 ^ㅇ^
+    변형하고 알랴주세요
   '''
 }
 
@@ -64,7 +67,6 @@ Table Board.board[
   board_type varchar [not null,
   note: '''
     게시판의 종류
-    - NOTI : 공지사항
     - KOREA : 한국 게시판
     - JAPAN : 일본 게시판
     - CHINA : 중국 게시판
@@ -87,25 +89,15 @@ Table Board.article[
       - JPN : 일본어
     '''
   ]
-  article_type varchar [not null, default: 'NORMAL' ,
-  note: '''
-    게시물 종류
-    - NOTI : 공지사항
-    - NORMAL : 일반적인 게시물
-  '''
-  ]
   status varchar [default: 'PUBLIC', note:'''
     게시물 상태
-      - WRITING : 작성중
       - PUBLIC : 공개상태
-      - HIDING : 숨김처리
       - DELETE : 삭제처리
   ''']
   like_count int [default: 0, note: '''
     좋아요 갯수, 매번 find로 cnt를 하는 것보다는, 게시물에서 가져오는게 좋을 것 같다는 판단을 하였슴.
     해당 방법은 구현하면서 변경하는게 좋겠다 싶으면 그렇게 하셔도 됩니다.
   ''']
-  is_deleted boolean [default: `false`, note: '게시글 삭제 여부']
   created_at datetime [default: `now()`, note: '게시글 생성일']
   created_user long [not null, note: '게시글 작성 사용자 ID입력, 관계를 묶지는 않은 이유는 Optional한 관계로 하기 떄문']
   updated_at datetime [default: `now()`, note: '게시글 정보 업데이트']
@@ -180,4 +172,48 @@ Table Board.article_like[
   article_id long [ref: > Board.article.id, not null, note: '게시물 ID']
   user_id long [not null, note: '좋아요를 누른 사용자의 User ID, 삭제가 되도 좋아요는 유지되는 것으로...!']
   created_at datetime [default: `now()`, note: '게시물의 좋아요를 클릭한 일자']
+}
+
+Table Notice.noti_article[
+  headercolor: #8F8DD8, note: '공지사항. 공지사항 하위에 들어갈 것들'
+] {
+  id long [pk, increment, note: '공지사항 ID']
+  org_article_language varchar [
+    not null, 
+    note: '''
+      원본으로 작성된 언어 타입
+      - KOR : 한국어
+      - ENG : 영어
+      - CHI : 중국어
+      - JPN : 일본어
+    '''
+  ]
+  status varchar [default: 'PUBLIC', note:'''
+    공지글 상태
+      - PUBLIC : 공개상태
+      - DELETE : 삭제처리
+  ''']
+  created_at datetime [default: `now()`, note: '공지글 생성일']
+  created_user long [not null, note: '공지글 작성 사용자 ID입력, 관계를 묶지는 않은 이유는 Optional한 관계로 하기 떄문']
+  updated_at datetime [default: `now()`, note: '공지글 정보 업데이트']
+  updated_user long [not null, note: '마지막에 수정한 사용자 ID입력, 관계를 묶지는 않은 이유는 Optional한 관계로 하기 떄문']
+}
+
+Table Notice.noti_content[
+  headercolor: #8F8DD8, note: '공지 내용'
+]{
+  id long [pk, increment, note: 'PK']
+  notice_id long [ref: > Notice.noti_article.id, not null, note: '공지사항 Id']
+  language varchar [
+    not null, 
+    note: '''
+      title, content가 적용된 언어 타입
+      - KOR : 한국어
+      - ENG : 영어
+      - CHI : 중국어
+      - JPN : 일본어
+    '''
+  ]
+  title varchar [not null, note: '공지사항 제목']
+  content blob [not null, note: '공지사항 내용']
 }
