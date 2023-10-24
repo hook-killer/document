@@ -11,11 +11,8 @@ Project Hook_Killer {
 Table Auth.tbl_user [
   headercolor: #E4A62E, note: '사용자 계정 정보 테이블'
 ] {
-  id long [pk, not null, increment, note:'사용자 UID']
-  email varchar [unique, not null , note: "사용자 로그인 ID"]
-  nick_name varchar(255) [not null, note: '사용자 NickName']
-  password varchar(255) [not null, note: '패스워드']
-  thumbnail varchar(255) [note: "사진 url"]
+  id bigint [pk, not null, increment, note:'사용자 UID']
+  email varchar(255)  [unique, not null , note: "사용자 로그인 ID"]
   login_type varchar [
     not null, default: "DEFAULT",
     note: '''
@@ -26,15 +23,15 @@ Table Auth.tbl_user [
       - KAKAO: 카카오
     '''
   ]
-  user_role varchar [
-    not null, default: "USER",
-    note: '''
-      사용자 권한
-      - USER: 사용자
-      - ADMIN: 관리자
-    '''
-  ]
-  user_status varchar [
+  nick_name varchar(255)  [not null, note: '사용자 NickName']
+  oid varchar(255)
+  password varchar(255) [not null, note: '패스워드']
+  provider jo_tbl_user_provider_enum [not null, note: '''
+    - KAKAO : Kakao를 통한 회원가입 사용자
+    - GOOGLE : Google을 통한 회원가입 사용자
+  ''']
+  role jo_tbl_user_role_enum
+  status jvarchar [
     not null,
     note: '''
       가입 방법에 따라 DEFAULT가 달라져야 하기 때문에 DEFAULT를 일부로 부여하지 않음.
@@ -44,148 +41,163 @@ Table Auth.tbl_user [
       - DELETE: 회원 탈퇴 및 삭제 필요 계정
     '''
   ]
-  created_at datetime [not null, default: `now()`, note: '계정 생성일']
-  updated_at datetime [not null, default: `now()`, note: '유저 정보 수정 일시']
-  login_at datetime [not null, default: `now()`, note: '마지막 로그인 시간']
-  is_deleted boolean [not null, default: `false`, note: '유저가 삭제되었는지 여부']
+  thumbnail varchar(255) [note: "사진 url"]
+  verification_token varchar(255) [note: '사용자 Email인증코드']
+  created_at timestamp [not null, default: `CURRENT_TIMESTAMP`]
+  update_at timestamp [not null, default: `CURRENT_TIMESTAMP`]
 }
 
-Table Auth.tbl_user_login_uuid [
-  headercolor: #E4A62E, note: '사용자 계정 인증 시 필요한 uuid 관련 테이블'
+Table Auth.tbl_certificate_key [
+  headercolor: #E4A62E, note: '사용자 계정 토큰정보 테이블'
 ] {
-  id long [pk, not null, increment, note:'인증 정보 UID']
-  user_id long [ref: - Auth.tbl_user.id]
-  uuid_key varchar [unique, not null , note: "사용자 로그인 ID"]
-  expiration_date varchar(255) [not null, note: '사용자 NickName']
+  id bigint [pk, increment]
+  expriation_at datetime(6) 
+  uuid_key varchar(255) [not null]
 }
 
-Table Board.board[
+
+
+Table Auth.tbl_refresh_token [
+  headercolor: #E4A62E, note: '사용자 계정 토큰정보 리프레시 테이블'
+] {
+  id bigint [pk, not null]
+  ttl bigint
+  refresh_token varchar(255)
+}
+
+Table Board.tbl_board [
   headercolor: #24BAB1, note: '게시판, 타입별로 하위 게시글 추가 가능'
 ] {
-  id long [pk, increment, note: '게시판 ID']
-  name varchar [not null, note: '게시판 명' ]
-  board_type varchar [not null,
-  note: '''
+  board_id bigint [pk, increment, note: '게시판 ID']
+  name varchar(255) [not null, note: '게시판 명' ]
+  description varchar(255) [not null, note:'게시판 사용 용도']
+  board_type varchar [not null, note: '''
     게시판의 종류
     - KOREA : 한국 게시판
     - JAPAN : 일본 게시판
     - CHINA : 중국 게시판
   ''']
-  description varchar [note:'게시판 사용 용도']
 }
 
-Table Board.article[
+
+Table Board.tbl_article [
   headercolor: #24BAB1, note: '게시글. 게시판 하위에 들어갈 것들'
 ] {
-  id long [pk, increment, note: '게시글 ID']
-  board_id long [ref: > Board.board.id, not null, note: '게시판 ID']
-  org_article_language varchar [
-    not null, 
-    note: '''
-      원본으로 작성된 언어 타입
-      - KOR : 한국어
-      - ENG : 영어
-      - CHI : 중국어
-      - JPN : 일본어
-    '''
-  ]
-  status varchar [default: 'PUBLIC', note:'''
-    게시물 상태
-      - PUBLIC : 공개상태
-      - DELETE : 삭제처리
-  ''']
+  id bigint [pk, increment, note: '게시글 ID']
+  board_id bigint [ref: > Board.tbl_board.board_id, not null, note: '게시판 ID']
   like_count int [default: 0, note: '''
     좋아요 갯수, 매번 find로 cnt를 하는 것보다는, 게시물에서 가져오는게 좋을 것 같다는 판단을 하였슴.
     해당 방법은 구현하면서 변경하는게 좋겠다 싶으면 그렇게 하셔도 됩니다.
   ''']
-  created_at datetime [default: `now()`, note: '게시글 생성일']
-  created_user long [not null, note: '게시글 작성 사용자 ID입력, 관계를 묶지는 않은 이유는 Optional한 관계로 하기 떄문']
-  updated_at datetime [default: `now()`, note: '게시글 정보 업데이트']
-  updated_user long [not null, note: '마지막에 수정한 사용자 ID입력, 관계를 묶지는 않은 이유는 Optional한 관계로 하기 떄문']
-}
-
-
-Table Board.article_content[
-  headercolor: #24BAB1, note: '게시물의 내용'
-]{
-  id long [pk, increment, note: 'PK']
-  article_id long [ref: > Board.article.id, not null, note: '게시판 Id']
-  language varchar [
-    not null, 
-    note: '''
-      title, content가 적용된 언어 타입
-      - KOR : 한국어
-      - ENG : 영어
-      - CHI : 중국어
-      - JPN : 일본어
-    '''
-  ]
-  title varchar [not null, note: '게시물 제목']
-  content blob [not null, note: '게시물 정보']
-}
-
-Table Board.reply[
-  headercolor: #1E69FD, note: '댓글 Master'
-]{
-  id long [pk, increment, note: '댓글 ID']
-  article_id long [ref: > Board.article.id, not null, note: '댓글이 등록된 게시물 ID']
-  org_reply_language varchar [
-    not null, 
-    note: '''
-      원본으로 작성된 언어 타입
-      - KOR : 한국어
-      - ENG : 영어
-      - CHI : 중국어
-      - JPN : 일본어
-    '''
-  ]
-  is_deleted boolean [default: `false`, note: '댓글 삭제 여부']
-  created_at datetime [default: `now()`, note: '댓글 생성일']
-  created_user long [not null, note: '댓글 작성 사용자 ID입력, 관계를 묶지는 않은 이유는 Optional한 관계로 하기 떄문']
-  updated_at datetime [default: `now()`, note: '댓글 정보 업데이트']
-  updated_user long [not null, note: '마지막에 수정한 사용자 ID입력, 관계를 묶지는 않은 이유는 Optional한 관계로 하기 떄문']
-}
-
-Table Board.reply_content[
-  headercolor: #1E69FD, note: '댓글'
-]{
-  id long [pk, increment, note: 'PK']
-  reply_id long [ref: > Board.reply.id, not null, note: '댓글 ID']
-  language varchar [
-    not null, 
-    note: '''
-      content가 적용된 언어 타입
-      - KOR : 한국어
-      - ENG : 영어
-      - CHI : 중국어
-      - JPN : 일본어
-    '''
-  ]
-  content blob [not null, note: '댓글 내용']
-}
-
-Table Board.article_like[
-  headercolor: #24BAB1,
-  note: '''게시물 좋아요'''
-]{
-  id long [pk, increment, note: 'PK']
-  article_id long [ref: > Board.article.id, not null, note: '게시물 ID']
-  user_id long [not null, note: '좋아요를 누른 사용자의 User ID, 삭제가 되도 좋아요는 유지되는 것으로...!']
-  created_at datetime [default: `now()`, note: '게시물의 좋아요를 클릭한 일자']
-}
-
-Table Notice.noti_article[
-  headercolor: #8F8DD8, note: '공지사항. 공지사항 하위에 들어갈 것들'
-] {
-  id long [pk, increment, note: '공지사항 ID']
+  article_status varchar [default: 'PUBLIC', note:'''
+    게시물 상태
+      - PUBLIC : 공개상태
+      - DELETE : 삭제처리
+  ''']
   org_article_language varchar [
     not null, 
     note: '''
       원본으로 작성된 언어 타입
-      - KOR : 한국어
-      - ENG : 영어
-      - CHI : 중국어
-      - JPN : 일본어
+      - KO : 한국어
+      - EN : 영어
+      - CN : 중국어
+      - JP : 일본어
+    '''
+  ]
+  created_at timestamp [not null, default: `CURRENT_TIMESTAMP`, note: '게시글 생성일']
+  created_user_id bigint [ref: > Auth.tbl_user.id, not null, note: '작성자 UserId']
+  update_at timestamp [not null, default: `CURRENT_TIMESTAMP`, note: '게시글 정보 업데이트']
+  updated_user_id bigint [ref: > Auth.tbl_user.id, not null, note: '마지막 수정자 UserId']
+}
+
+Table Board.tbl_article_content[
+  headercolor: #24BAB1, note: '게시물의 내용'
+]{
+  id bigint [pk, increment, note: 'PK']
+  article_id bigint [ref: > Board.tbl_article.id, not null, note: '게시판 Id']
+  language varchar [
+    not null, 
+    note: '''
+      title, content가 적용된 언어 타입
+      - KO : 한국어
+      - EN : 영어
+      - CN : 중국어
+      - JP : 일본어
+    '''
+  ]
+  title varchar(255) [not null, note: '게시물 제목']
+  content longtext [not null, note: '게시물 정보']
+}
+
+Table Board.tbl_article_like [
+  headercolor: #24BAB1,
+  note: '''게시물 좋아요'''
+]{
+  id bigint [pk, increment, note: 'PK']
+  article_id bigint [ref: > Board.tbl_article.id, not null, note: '게시물 ID']
+  user_id bigint [ref: > Auth.tbl_user.id, not null, note: '좋아요를 누른 사용자의 User ID']
+  created_at timestamp [not null, default: `CURRENT_TIMESTAMP`, note: '좋아요를 누른 시간']
+  update_at timestamp [not null, default: `CURRENT_TIMESTAMP`]
+}
+
+Table Board.tbl_reply [
+  headercolor: #1E69FD, note: '댓글 Master'
+]{
+  id bigint [pk, increment]
+  article_id bigint [ref: > Board.tbl_article.id]
+  org_reply_language varchar [
+    not null, 
+    note: '''
+      원본으로 작성된 언어 타입
+      - KO : 한국어
+      - EN : 영어
+      - CN : 중국어
+      - JP : 일본어
+    '''
+  ]
+  reply_status varchar [not null, note:'''
+    게시물 상태값
+    - DELETED : 삭제된 댓글
+    - USABLE  : 현재 조회가능한 댓글
+  ''']
+  created_at timestamp [not null, default: `CURRENT_TIMESTAMP`, note: '댓글 생성일']
+  created_user_id bigint [not null, note: '댓글을 작성한 사용자 ID']
+  update_at timestamp [not null, default: `CURRENT_TIMESTAMP`, note: '댓글 정보 업데이트']
+  updated_user_id bigint [not null, note: '마지막에 댓글을 수정한 사용자 ID']
+
+}
+
+Table Board.tbl_reply_content [
+  headercolor: #1E69FD, note: '댓글내용'
+]{
+  id bigint [pk, increment]
+  reply_id bigint [ref: > Board.tbl_reply.id, not null, note: '댓글ID']
+  language varchar [
+    not null, 
+    note: '''
+      원본으로 작성된 언어 타입
+      - KO : 한국어
+      - EN : 영어
+      - CN : 중국어
+      - JP : 일본어
+    '''
+  ]
+  content text [not null, note: '댓글내용']
+}
+
+
+Table Notice.tbl_notice_article [
+  headercolor: #8F8DD8, note: '공지사항. 공지사항 하위에 들어갈 것들'
+] {
+  id bigint [pk, increment]
+  language varchar [
+    not null, 
+    note: '''
+      원본으로 작성된 언어 타입
+      - KO : 한국어
+      - EN : 영어
+      - CN : 중국어
+      - JP : 일본어
     '''
   ]
   status varchar [default: 'PUBLIC', note:'''
@@ -193,27 +205,42 @@ Table Notice.noti_article[
       - PUBLIC : 공개상태
       - DELETE : 삭제처리
   ''']
-  created_at datetime [default: `now()`, note: '공지글 생성일']
-  created_user long [not null, note: '공지글 작성 사용자 ID입력, 관계를 묶지는 않은 이유는 Optional한 관계로 하기 떄문']
-  updated_at datetime [default: `now()`, note: '공지글 정보 업데이트']
-  updated_user long [not null, note: '마지막에 수정한 사용자 ID입력, 관계를 묶지는 않은 이유는 Optional한 관계로 하기 떄문']
+  created_at timestamp [not null, default: `CURRENT_TIMESTAMP`, note: '공지글 생성일']
+  created_user_id bigint [ref: > Auth.tbl_user.id, not null,  note: '공지글 작성 사용자 ID']
+  update_at timestamp [not null, default: `CURRENT_TIMESTAMP`, note: '공지글 정보 업데이트']
+  updated_user_id bigint [ref: > Auth.tbl_user.id, not null,  note: '마지막에 수정한 사용자 ID']
 }
 
-Table Notice.noti_content[
+Table Notice.tbl_notice_content [
   headercolor: #8F8DD8, note: '공지 내용'
 ]{
-  id long [pk, increment, note: 'PK']
-  notice_id long [ref: > Notice.noti_article.id, not null, note: '공지사항 Id']
+  id bigint [pk, increment]
+  notice_id bigint [ref: > Notice.tbl_notice_article.id, not null, note: '공지사항 Id']
   language varchar [
     not null, 
     note: '''
       title, content가 적용된 언어 타입
-      - KOR : 한국어
-      - ENG : 영어
-      - CHI : 중국어
-      - JPN : 일본어
+      - KO : 한국어
+      - EN : 영어
+      - CN : 중국어
+      - JP : 일본어
     '''
   ]
-  title varchar [not null, note: '공지사항 제목']
-  content blob [not null, note: '공지사항 내용']
+  title varchar(255) [not null, note: '공지사항 제목']
+  content tinytext [not null, note: '공지사항 내용']
+}
+
+
+Table Resource.tbl_resources {
+  id bigint [pk, increment]
+  path varchar(255) [not null, note: 'ObjectStorage에서의 파일 경루']
+  usage_type varchar [note: '''
+    - ADMIN : 관리자기능관련 사용
+    - ARTICLE : 게시물기능관련
+    - BOARD : 게시판기능 관련
+    - PROFILE : 프로필기능 관련
+  ''']
+  created_at timestamp [not null, default: `CURRENT_TIMESTAMP`, note: '파일 생성일']
+  created_user bigint [ref: > Auth.tbl_user.id, not null, note: '사용자 UID']
+  update_at timestamp [not null, default: `CURRENT_TIMESTAMP`, note: '사실상 사용안함.']
 }
