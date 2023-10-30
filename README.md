@@ -95,7 +95,10 @@
 
 ## 와이어프레임
 
-> 위키 정리하고 위키 링크 걸어두기~
+> [!WARNING]  
+> 많은 양의 이미지 이다보니 위키 링크를 첨부하였습니다.
+
+- [와이어프레임 위키 링크](https://github.com/hook-killer/document/wiki/01.-WireFrame)
 
 ## 회고
 
