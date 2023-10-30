@@ -26,6 +26,9 @@
 
 ## Local Server Cloud MySQL
 
+> [!WARNING]
+> 프로젝트 종료이후 폐쇄진행함.
+
 ### 공통사항
 
 - URL :db-it7f7-kr.vpc-pub-cdb.ntruss.com
