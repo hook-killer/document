@@ -91,9 +91,7 @@
 
 ## ERD
 
-> 위키 정리하고 위키 링크 걸어두기~
-
-- [DBDocs Link](https://dbdocs.io/donsonioc2010/Hook_killer)
+[![ERD](./ERD/ERD_v231027.png)](https://dbdocs.io/donsonioc2010/Hook_killer)
 
 ## 와이어프레임
 
