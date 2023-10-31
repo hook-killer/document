@@ -13,6 +13,7 @@
     - [Front](#front)
     - [FrontEnd](#frontend)
     - [BackEnd](#backend)
+    - [Service](#service)
     - [DB](#db)
     - [CI/CD](#cicd)
     - [Tool](#tool)
@@ -88,6 +89,29 @@
 ![CSS3](https://img.shields.io/badge/css-3-1572B6?style=flat&logo=css3&logoColor=white)
 
 ### BackEnd
+
+![JDK17](https://img.shields.io/badge/Java-v.17-CC0000?style=flat&logo=OpenJDK&logoColor=white)
+![Gradle](https://img.shields.io/badge/Gradle-v.8-02303A?style=flat&logo=Gradle&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring-Boot_v.3-6DB33F?style=flat&logo=Spring-Boot&logoColor=white)
+![Spring Data JPA](https://img.shields.io/badge/Spring-Data_JPA-6DB33F?style=flat&logo=Spring&logoColor=white)
+![Spring Security](https://img.shields.io/badge/Spring-Security-6DB33F?style=flat&logo=Spring-Security&logoColor=white)
+![Spring Cloud](https://img.shields.io/badge/Spring-Cloud-E50914?style=flat&logo=Netflix&logoColor=white)
+![Thymeleaf](https://img.shields.io/badge/Thymeleaf-v.3-005F0F?style=flat&logo=Thymeleaf&logoColor=white)
+![Thymeleaf](https://img.shields.io/badge/JWT-000000?style=flat&logo=jsonwebtokens&logoColor=white)
+
+### Service
+
+![NCP](https://img.shields.io/badge/NCP-Load_Balancer-03C75A?style=flat&logo=Naver&logoColor=white)
+![NCP](https://img.shields.io/badge/NCP-Container_Registry-03C75A?style=flat&logo=Naver&logoColor=white)
+![NCP](https://img.shields.io/badge/NCP-Global_DNS-03C75A?style=flat&logo=Naver&logoColor=white)
+![NCP](https://img.shields.io/badge/NCP-Object_Storage-03C75A?style=flat&logo=Naver&logoColor=white)
+![NCP](https://img.shields.io/badge/NCP-Server-03C75A?style=flat&logo=Naver&logoColor=white)
+![NCP](https://img.shields.io/badge/NCP-NAT_Gateway-03C75A?style=flat&logo=Naver&logoColor=white)
+![NCP](https://img.shields.io/badge/NCP-Papago_API-03C75A?style=flat&logo=Naver&logoColor=white)
+![NCP](https://img.shields.io/badge/NCP-Effective_Log_Search_&_Analytics-03C75A?style=flat&logo=Naver&logoColor=white)
+![NCP](https://img.shields.io/badge/Naver-Docker_Pinpoint_v2.5.2-03C75A?style=flat&logo=Naver&logoColor=white)
+![Kakao](https://img.shields.io/badge/Kakao-OAuth-FFCD00?style=flat&logo=KakaoTalk&logoColor=white)
+![Google](https://img.shields.io/badge/Google-OAuth-4285F4?style=flat&logo=Google&logoColor=white)
 
 ### DB
 
