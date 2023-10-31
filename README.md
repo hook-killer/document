@@ -97,7 +97,7 @@
 ![Spring Security](https://img.shields.io/badge/Spring-Security-6DB33F?style=flat&logo=Spring-Security&logoColor=white)
 ![Spring Cloud](https://img.shields.io/badge/Spring-Cloud-E50914?style=flat&logo=Netflix&logoColor=white)
 ![Thymeleaf](https://img.shields.io/badge/Thymeleaf-v.3-005F0F?style=flat&logo=Thymeleaf&logoColor=white)
-![Thymeleaf](https://img.shields.io/badge/JWT-000000?style=flat&logo=jsonwebtokens&logoColor=white)
+![jwt](https://img.shields.io/badge/JWT-000000?style=flat&logo=jsonwebtokens&logoColor=white)
 
 ### Service
 
