@@ -6,43 +6,45 @@
 
 - [README](#readme)
   - [Index](#index)
-  - [Member](#member)
-  - [프로젝트 일정](#프로젝트-일정)
-  - [아키텍쳐](#아키텍쳐)
-  - [기술스택](#기술스택)
-    - [FrontEnd](#frontend)
-    - [BackEnd](#backend)
-    - [Service](#service)
-    - [DB](#db)
-    - [CI/CD](#cicd)
-    - [Tool](#tool)
-  - [ERD](#erd)
-  - [와이어프레임](#와이어프레임)
-  - [회고](#회고)
+  - [1️⃣프로젝트 소개](#1️⃣프로젝트-소개)
+    - [1. 개요](#1-개요)
+    - [2. 멤버](#2-멤버)
+    - [3. 일정](#3-일정)
+  - [2️⃣아키텍쳐](#2️⃣아키텍쳐)
+  - [3️⃣기술스택](#3️⃣기술스택)
+    - [1. FrontEnd](#1-frontend)
+    - [2. BackEnd](#2-backend)
+    - [3. Service](#3-service)
+    - [4. DB](#4-db)
+    - [5. CI/CD](#5-cicd)
+    - [6. Tool](#6-tool)
+  - [4️⃣ERD](#4️⃣erd)
+  - [5️⃣와이어프레임](#5️⃣와이어프레임)
+  - [6️⃣개발 및 이슈, 회고](#6️⃣개발-및-이슈-회고)
     - [종원](#종원)
     - [세환](#세환)
     - [진석](#진석)
     - [근우](#근우)
     - [정훈](#정훈)
     - [재운](#재운)
-  - [이슈 및 개발](#이슈-및-개발)
-    - [종원](#종원-1)
-    - [세환](#세환-1)
-    - [진석](#진석-1)
-    - [근우](#근우-1)
-    - [정훈](#정훈-1)
-    - [재운](#재운-1)
-  - [Project Demo](#project-demo)
-  - [부하테스트 기록 이미지](#부하테스트-기록-이미지)
+  - [7️⃣Project Demo](#7️⃣project-demo)
+  - [8️⃣부하테스트 기록 이미지](#8️⃣부하테스트-기록-이미지)
 
-## Member
+## 1️⃣프로젝트 소개
+
+### 1. 개요
+
+![LOGO](https://github.com/hook-killer/.github/blob/main/profile/asset/Logo.png?raw=true)
+
+> [!NOTE]  
+> 거리가 가까운 동북아 3국인 중국, 한국, 일본 세개국의 더 돈독한 화합과 교류를 위한 커뮤니티를 만들어보고 싶어 제작해본 프로젝트입니다.
+
+### 2. 멤버
 
 <table>
  <tr>
     <td align="center"><a href="https://github.com/donsonioc2010"><img src="https://avatars.githubusercontent.com/donsonioc2010" width="140px;" alt=""></a></td>
-    <td align="center">
-      <a href="https://github.com/bongsh0112"><img src="https://avatars.githubusercontent.com/bongsh0112" width="140px;" alt=""></a>
-      </td>
+    <td align="center"><a href="https://github.com/bongsh0112"><img src="https://avatars.githubusercontent.com/bongsh0112" width="140px;" alt=""></a></td>
     <td align="center"><a href="https://github.com/wooni89"><img src="https://avatars.githubusercontent.com/u/77907190?v=4" width="140px;" alt=""></a></td>
     <td align="center"><a href="https://github.com/lljh1992"><img src="https://avatars.githubusercontent.com/u/134458007?v=4" width="140px;" alt=""></a></td>
     <td align="center"><a href="https://github.com/kwchoi11"><img src="https://avatars.githubusercontent.com/u/131943335?v=4" width="140px;" alt=""></a></td>
@@ -58,93 +60,20 @@
   </tr>
 </table>
 
-## 프로젝트 일정
+### 3. 일정
 
 > [!NOTE]
-> 23년 09월 27일 ~ 23년 10월 27일
+>
+> `23년 09월 27일`에 시작하였으며, 설계, 구축, 개발, 시연 총 4개의 단계를 진행하였습니다.
+> 이후 `23년 10월 27일` 개발을 완료하였습니다.
 
-## 아키텍쳐
+## 2️⃣아키텍쳐
 
 > 위키 정리하고 위키 링크 걸어두기~
 
-## 기술스택
+## 3️⃣기술스택
 
-<table>
- <tr>
-    <th align="center"><h2>FrontEnd</h2></th>
-    <td>
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-    </td>
-  </tr>
-  <tr>
-    <th align="center"><h2>BackEnd</h2></th>
-    <td>
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-    </td>
-  </tr>
-  <tr>
-    <th align="center"><h2>Service</h2></th>
-    <td>
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-    </td>
-  </tr>
-  <tr>
-    <th align="center"><h2>Database</h2></th>
-    <td>
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-    </td>
-  </tr>
-  <tr>
-    <th align="center"><h2>CI / CD</h2></th>
-    <td>
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-    </td>
-  </tr>
-  <tr>
-    <th align="center"><h2>Tool</h2></th>
-    <td>
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
-    </td>
-  </tr>
-</table>
-
-### FrontEnd
+### 1. FrontEnd
 
 ![NGINX](https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white)
 ![React](https://img.shields.io/badge/React-v.18-61DAFB?style=flat&logo=React&logoColor=white)
@@ -160,7 +89,7 @@
 ![HTML5](https://img.shields.io/badge/html-5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css-3-1572B6?style=flat&logo=css3&logoColor=white)
 
-### BackEnd
+### 2. BackEnd
 
 ![JDK17](https://img.shields.io/badge/Java-v.17-CC0000?style=flat&logo=OpenJDK&logoColor=white)
 ![Gradle](https://img.shields.io/badge/Gradle-v.8-02303A?style=flat&logo=Gradle&logoColor=white)
@@ -171,7 +100,7 @@
 ![Thymeleaf](https://img.shields.io/badge/Thymeleaf-v.3-005F0F?style=flat&logo=Thymeleaf&logoColor=white)
 ![jwt](https://img.shields.io/badge/JWT-000000?style=flat&logo=jsonwebtokens&logoColor=white)
 
-### Service
+### 3. Service
 
 ![NCP](https://img.shields.io/badge/NCP-Load_Balancer-03C75A?style=flat&logo=Naver&logoColor=white)
 ![NCP](https://img.shields.io/badge/NCP-Container_Registry-03C75A?style=flat&logo=Naver&logoColor=white)
@@ -185,17 +114,17 @@
 ![Kakao](https://img.shields.io/badge/Kakao-OAuth-FFCD00?style=flat&logo=KakaoTalk&logoColor=white)
 ![Google](https://img.shields.io/badge/Google-OAuth-4285F4?style=flat&logo=Google&logoColor=white)
 
-### DB
+### 4. DB
 
 ![MySQL](https://img.shields.io/badge/MySQL-v.8.0.33-4479A1?style=flat&logo=MySQL&logoColor=white)
 
-### CI/CD
+### 5. CI/CD
 
 ![Github Actions](https://img.shields.io/badge/Github_Actions-2088FF?style=flat&logo=Github-Actions&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=Docker&logoColor=white)
 ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=flat&logo=Jenkins&logoColor=white)
 
-### Tool
+### 6. Tool
 
 ![Github](https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white)
 ![Intellij IDEA](https://img.shields.io/badge/IntelliJ-000000?style=flat&logo=IntelliJ-IDEA&logoColor=white)
@@ -204,34 +133,20 @@
 ![Notion](https://img.shields.io/badge/Notion-000000?style=flat&logo=Notion&logoColor=white)
 ![PostMan](https://img.shields.io/badge/Postman-FF6C37?style=flat&logo=Postman&logoColor=white)
 
-## ERD
+## 4️⃣ERD
 
 [![ERD](./ERD/ERD_v231027.png)](https://dbdocs.io/donsonioc2010/Hook_killer)
 
-## 와이어프레임
+## 5️⃣와이어프레임
 
 > [!WARNING]  
 > 많은 양의 이미지 이다보니 위키 링크를 첨부하였습니다.
 
 - [와이어프레임 위키 링크](https://github.com/hook-killer/document/wiki/01.-WireFrame)
 
-## 회고
+## 6️⃣개발 및 이슈, 회고
 
 > 각자 개발하면서 어떤 생각을 하는지 꾸준히 기록해보세요 😃
-
-### 종원
-
-### 세환
-
-### 진석
-
-### 근우
-
-### 정훈
-
-### 재운
-
-## 이슈 및 개발
 
 > 개발하면서 발생한 이슈 또는 개발관련 문제들에 대해서 기록하고 링크를 걸어보세요😃
 
@@ -247,7 +162,7 @@
 
 ### 재운
 
-## Project Demo
+## 7️⃣Project Demo
 
 > [!WARNING]  
 > 많은 양의 이미지 이다보니 위키 링크를 첨부하였습니다.
@@ -257,6 +172,6 @@
 
 [![Project Demo Youtube](http://img.youtube.com/vi/TCDPdvttXfw/0.jpg)](https://youtu.be/TCDPdvttXfw)
 
-## 부하테스트 기록 이미지
+## 8️⃣부하테스트 기록 이미지
 
 > 위키로 정리하고 위키 링크 기록하기
