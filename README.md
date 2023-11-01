@@ -10,7 +10,6 @@
   - [프로젝트 일정](#프로젝트-일정)
   - [아키텍쳐](#아키텍쳐)
   - [기술스택](#기술스택)
-    - [Front](#front)
     - [FrontEnd](#frontend)
     - [BackEnd](#backend)
     - [Service](#service)
@@ -70,7 +69,80 @@
 
 ## 기술스택
 
-### Front
+<table>
+ <tr>
+    <th align="center"><h2>FrontEnd</h2></th>
+    <td>
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+    </td>
+  </tr>
+  <tr>
+    <th align="center"><h2>BackEnd</h2></th>
+    <td>
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+    </td>
+  </tr>
+  <tr>
+    <th align="center"><h2>Service</h2></th>
+    <td>
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+    </td>
+  </tr>
+  <tr>
+    <th align="center"><h2>Database</h2></th>
+    <td>
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+    </td>
+  </tr>
+  <tr>
+    <th align="center"><h2>CI / CD</h2></th>
+    <td>
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+    </td>
+  </tr>
+  <tr>
+    <th align="center"><h2>Tool</h2></th>
+    <td>
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+      <img src="https://img.shields.io/badge/NGINX-009639?style=flat&logo=NGINX&logoColor=white" alt="nginx" />
+    </td>
+  </tr>
+</table>
 
 ### FrontEnd
 
