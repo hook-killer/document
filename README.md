@@ -27,8 +27,9 @@
     - [근우](#근우)
     - [정훈](#정훈)
     - [재운](#재운)
-  - [7️⃣Project Demo](#7️⃣project-demo)
-  - [8️⃣부하테스트 기록 이미지](#8️⃣부하테스트-기록-이미지)
+  - [7️⃣부하테스트 기록 이미지](#7️⃣부하테스트-기록-이미지)
+  - [8️⃣Project Demo](#8️⃣project-demo)
+  - [9️⃣발표 영상](#9️⃣발표-영상)
 
 ## 1️⃣프로젝트 소개
 
@@ -167,7 +168,11 @@
 
 ### 재운
 
-## 7️⃣Project Demo
+## 7️⃣부하테스트 기록 이미지
+
+> 위키로 정리하고 위키 링크 기록하기
+
+## 8️⃣Project Demo
 
 > [!INFO]
 > 실제 전부 개발했던 시연 영상입니다.
@@ -180,6 +185,6 @@
 
 [![Project Demo Youtube](http://img.youtube.com/vi/TCDPdvttXfw/0.jpg)](https://youtu.be/TCDPdvttXfw)
 
-## 8️⃣부하테스트 기록 이미지
+## 9️⃣발표 영상
 
-> 위키로 정리하고 위키 링크 기록하기
+[![Project Result Youtube](http://img.youtube.com/vi/crN5Hoiw8ds/0.jpg)](https://youtu.be/crN5Hoiw8ds)
