@@ -72,7 +72,7 @@
 
 ## 2️⃣아키텍쳐
 
-> [!INFO]  
+> [!NOTE]  
 > Proxy Server를 제외한 모든 인프라를 Private Zone에서 구축을 해보고자 하였습니다.
 >
 > 인프라에서 실제로 공개된 영역은 Pinpoint, Jenkins, API Server, Nginx Server만 Public 하게 노출이 된 구상도입니다.
