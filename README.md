@@ -69,7 +69,12 @@
 
 ## 2️⃣아키텍쳐
 
-> 위키 정리하고 위키 링크 걸어두기~
+> [!INFO]  
+> Proxy Server를 제외한 모든 인프라를 Private Zone에서 구축을 해보고자 하였습니다.
+>
+> 인프라에서 실제로 공개된 영역은 Pinpoint, Jenkins, API Server, Nginx Server만 Public 하게 노출이 된 구상도입니다.
+
+![Architecture Map](./Architecture/Hook_killer%20Architecture%20Final.png)
 
 ## 3️⃣기술스택
 
@@ -163,6 +168,9 @@
 ### 재운
 
 ## 7️⃣Project Demo
+
+> [!INFO]
+> 실제 전부 개발했던 시연 영상입니다.
 
 > [!WARNING]  
 > 많은 양의 이미지 이다보니 위키 링크를 첨부하였습니다.
