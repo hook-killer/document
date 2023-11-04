@@ -1,4 +1,4 @@
-# BackEnd
+# FrontEnd
 
 > [!NOTE]
 > 해당 페이지에서는 Docker파일의 역할과, Jenkins에서의 빌드 작업을 기록되어있습니다.
