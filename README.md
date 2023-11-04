@@ -29,6 +29,8 @@
     - [재운](#재운)
   - [7️⃣부하테스트 기록 이미지](#7️⃣부하테스트-기록-이미지)
   - [8️⃣Project Demo](#8️⃣project-demo)
+    - [Demo 기능별 시연 영상](#demo-기능별-시연-영상)
+    - [Demo 총 시연 영상](#demo-총-시연-영상)
   - [9️⃣발표 영상](#9️⃣발표-영상)
 
 ## 1️⃣프로젝트 소개
@@ -177,11 +179,15 @@
 > [!INFO]
 > 실제 전부 개발했던 시연 영상입니다.
 
+### Demo 기능별 시연 영상
+
 > [!WARNING]  
 > 많은 양의 이미지 이다보니 위키 링크를 첨부하였습니다.
 > 양해 부탁드립니다.
 
 - [프로젝트 데모 시연 위키 링크](https://github.com/hook-killer/document/wiki/Project-Demo)
+
+### Demo 총 시연 영상
 
 [![Project Demo Youtube](http://img.youtube.com/vi/TCDPdvttXfw/0.jpg)](https://youtu.be/TCDPdvttXfw)
 
