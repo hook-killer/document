@@ -161,6 +161,7 @@
 ### 종원
 
 - [팀 결성, 프로젝트의 시작과 개요](https://devjong12.tistory.com/109)
+- [PinPoint의 설치 과정](https://devjong12.tistory.com/110)
 
 ### 세환
 
